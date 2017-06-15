@@ -10,4 +10,5 @@ export default Ember.Component.extend({
       this.set('newPost.author', null);
       this.set('newPost.text', null);
     }
+  }
 });

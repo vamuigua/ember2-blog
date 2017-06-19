@@ -5,13 +5,8 @@ export default Ember.Route.extend({
         return {};
 },
 actions: {
-    createPost: function (model) {
-      let post = this.store.createRecord('post', {
-        title: model.title,
-        text: model.text,
-        author: model.author,
-        createdDate: new Date()
-      });
+    createPost(params) {
+      let post = this.store.createRecord('post', params);
       post.save();
     }
   }

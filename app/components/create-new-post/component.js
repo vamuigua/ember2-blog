@@ -2,13 +2,19 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   actions: {
-    createPost: function (model) {
-      this.sendAction('createPost', model);
-
+    createPost() {
+      var params = {
+        title: this.get('title'),
+        author: this.get('author'),
+        text: this.get('text'),
+        createdDate: new Date()
+      };
       // Clear each input field
-      this.set('newPost.title', null);
-      this.set('newPost.author', null);
-      this.set('newPost.text', null);
+      this.set('title', null);
+      this.set('author', null);
+      this.set('text', null);
+
+      this.sendAction('createPost', params);
     }
   }
 });
